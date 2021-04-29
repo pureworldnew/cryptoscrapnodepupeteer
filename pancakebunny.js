@@ -4,7 +4,7 @@ const { getColumns } = require("./util");
 class Pancakebunny {
   constructor() {
     (async () => {
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium-browser'});
       const page = await browser.newPage();
       await page.goto("https://pancakebunny.finance/pool", {
         waitUntil: "networkidle2",
