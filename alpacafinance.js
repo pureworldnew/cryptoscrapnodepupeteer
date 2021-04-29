@@ -4,7 +4,7 @@ const { getColumns } = require("./util");
 class Alpacafinance {
   constructor() {
     (async () => {
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({args: ['--no-sandbox']});
       const page = await browser.newPage();
       await page.goto("https://app.alpacafinance.org/farm", {
         waitUntil: "networkidle2",
@@ -25,7 +25,7 @@ class Alpacafinance {
 
       const path_array = {
         swap_name:
-          "table tbody tr td:nth-child(2) .c-lpPoolName--value:nth-child(2)",
+          "table tbody tr td:nth-child(2) .c-lpPoolName:nth-child(2)",
         apy_leverage: "table tbody tr td:nth-child(3) .c-apy--leverage",
         apy_base: "table tbody tr td:nth-child(3) .c-apy--base",
         yield_farming:

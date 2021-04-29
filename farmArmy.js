@@ -4,7 +4,7 @@ const { getColumns } = require("./util");
 class Farmarmy {
   constructor() {
     (async () => {
-      const browser = await puppeteer.launch({executablePath: '/usr/bin/chromium-browser'});
+      const browser = await puppeteer.launch({args: ['--no-sandbox']});
       const page = await browser.newPage();
       await page.goto(
         "https://farm.army/0xd17cb65B0eb9B370BFD51a3d249be92cdae0Eeed",
